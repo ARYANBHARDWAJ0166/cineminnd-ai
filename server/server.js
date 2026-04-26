@@ -6,14 +6,11 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 
 const app = express();
-
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://cineminnd-ai.onrender.com" // ← Change this to your actual frontend URL after deployment
-  ],
-  credentials: true
+  origin: '*',
+  credentials: false
 }));
+
 
 app.use(express.json());
 app.use(passport.initialize());
