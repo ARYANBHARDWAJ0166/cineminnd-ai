@@ -1,0 +1,17 @@
+# Environment variables - NEVER commit these
+.env
+.env.local
+server/.env
+
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Videos
+*.mp4
+*.MP4
+
+# Build
+client/build/
+dist/
