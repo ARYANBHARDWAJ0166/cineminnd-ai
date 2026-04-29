@@ -29,7 +29,9 @@ const skipIntroBtn = document.getElementById("skip-intro");
         displayedMovieIds: new Set(), currentMessageId: 0, lastQuery: '',
         isChatVisible: true
     };
-    const API_URL = 'http://localhost:5000';
+    const API_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'https://cineminnd-ai.onrender.com';
     let marqueeAnimationId = null;
 
     const STATIC_POSTERS = [
