@@ -640,10 +640,6 @@
 
     <script src="app.js"></script>
 
-
-
-
-
 <div id="intro-video-container" class="hidden">
     <video 
         id="intro-video" 
@@ -658,8 +654,9 @@
             object-fit: cover;
             z-index: 99999;
         ">
-        <!-- No source - add your video to cloudinary and paste URL here -->
-        <!-- Example: <source src="YOUR_CLOUDINARY_URL" type="video/mp4"> -->
+        <source 
+            src="https://res.cloudinary.com/dyrnzpdlf/video/upload/v1777455532/AI_Movie_Assistant_202604242059_qw67zb.mp4" 
+            type="video/mp4">
     </video>
     <button id="skip-intro" style="
         position: fixed;
@@ -676,6 +673,8 @@
         backdrop-filter: blur(10px);
     ">Skip ⏩</button>
 </div>
+
+
 
 
 
