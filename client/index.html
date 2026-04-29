@@ -404,15 +404,108 @@
 
 }
 
+
+
+
+        /* ✅ Mobile Video Fix */
+@media (max-width: 768px) {
+
+    /* Background video full screen on mobile */
+    .video-bg iframe {
+        width: 100vw !important;
+        height: 100vh !important;
+        min-width: 100vw !important;
+        min-height: 100vh !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+    }
+
+    /* Intro video full screen on mobile */
+    #intro-video {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        object-fit: cover !important;
+    }
+
+    /* Intro container full screen */
+    #intro-video-container {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: black !important;
+        z-index: 999999 !important;
+    }
+
+    /* Skip button position on mobile */
+    #skip-intro {
+        position: fixed !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        z-index: 9999999 !important;
+        font-size: 0.9rem !important;
+        padding: 10px 18px !important;
+    }
+
+    /* Auth container full screen on mobile */
+    #auth-container {
+        overflow-y: auto !important;
+    }
+
+    /* Auth card full width on mobile */
+    .auth-card {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+    .auth-content {
+        padding: 1rem !important;
+    }
+
+    .auth-card {
+        padding: 1.25rem !important;
+        border-radius: 12px !important;
+    }
+
+    #intro-video {
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+}
+
     </style>
 </head>
 <body>
     <!-- AUTH -->
     <div id="auth-container">
-       <div class="video-bg">
-   <video id="bg-video" autoplay muted loop playsinline>
-    <source src="vid3.mp4" type="video/mp4">
-</video>
+   <div class="video-bg">
+    <iframe 
+        id="bg-video"
+        src="https://www.youtube.com/embed/5PSNL1qE6VY?autoplay=1&mute=1&controls=0&loop=1&playlist=5PSNL1qE6VY&playsinline=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            min-width: 177.77vh;
+            min-height: 56.25vw;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            filter: brightness(0.5);
+        ">
+    </iframe>
 </div>
 
         <div class="auth-content">
@@ -551,15 +644,41 @@
 
 
 
-
-
-
 <div id="intro-video-container" class="hidden">
-    <video id="intro-video" playsinline>
-        <source src="AI_Movie_Assistant_202604242059.mp4" type="video/mp4">
+    <video 
+        id="intro-video" 
+        playsinline
+        muted
+        style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 99999;
+        ">
+        <!-- No source - add your video to cloudinary and paste URL here -->
+        <!-- Example: <source src="YOUR_CLOUDINARY_URL" type="video/mp4"> -->
     </video>
-    <button id="skip-intro">Skip ⏩</button>
+    <button id="skip-intro" style="
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 999999;
+        padding: 12px 24px;
+        background: rgba(0,0,0,0.7);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+    ">Skip ⏩</button>
 </div>
+
+
+
 
 
 
