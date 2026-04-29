@@ -688,42 +688,30 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
+
 function showAppUI() {
-    // Check if video has a source
-    if (introVideo.querySelector('source') && 
-        introVideo.querySelector('source').src) {
-        
-        // Show intro video
-        introContainer.classList.remove('hidden');
-        introVideo.currentTime = 0;
-        
-        const playPromise = introVideo.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => {
-                // If video fails to play just start app
-                introContainer.classList.add('hidden');
-                startApp();
-            });
-        }
+    introContainer.classList.remove('hidden');
+    introVideo.currentTime = 0;
 
-        introVideo.onended = () => {
+    const playPromise = introVideo.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
             startApp();
-        };
+        });
+    }
 
-        skipIntroBtn.onclick = () => {
-            introVideo.pause();
-            introContainer.classList.add('hidden');
-            startApp();
-        };
+    introVideo.onended = () => {
+        startApp();
+    };
 
-    } else {
-        // No video source - skip intro directly
+    skipIntroBtn.onclick = () => {
+        introVideo.pause();
         introContainer.classList.add('hidden');
         startApp();
-    }
+    };
 }
-
-
 
 
 
