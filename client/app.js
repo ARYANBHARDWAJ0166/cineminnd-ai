@@ -688,7 +688,40 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+function showAppUI() {
+    // Check if video has a source
+    if (introVideo.querySelector('source') && 
+        introVideo.querySelector('source').src) {
+        
+        // Show intro video
+        introContainer.classList.remove('hidden');
+        introVideo.currentTime = 0;
+        
+        const playPromise = introVideo.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // If video fails to play just start app
+                introContainer.classList.add('hidden');
+                startApp();
+            });
+        }
 
+        introVideo.onended = () => {
+            startApp();
+        };
+
+        skipIntroBtn.onclick = () => {
+            introVideo.pause();
+            introContainer.classList.add('hidden');
+            startApp();
+        };
+
+    } else {
+        // No video source - skip intro directly
+        introContainer.classList.add('hidden');
+        startApp();
+    }
+}
 
 
 
@@ -715,25 +748,7 @@ document.addEventListener('keydown', (e) => {
     initializeApp();
 
     function showAuthUI() { authContainer.classList.remove('hidden'); appContainer.classList.add('hidden'); }
-   function showAppUI() {
-
-    // 🎬 show intro ONLY after login click success
-    introContainer.classList.remove('hidden');
-
-    // play video
-    introVideo.currentTime = 0;
-    introVideo.play();
-
-    // when video ends → open app
-    introVideo.onended = () => {
-        startApp();
-    };
-
-    // skip button
-    skipIntroBtn.onclick = () => {
-        introVideo.pause();
-        startApp();
-    };
+  };
 }
 
 // original logic moved here
