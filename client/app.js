@@ -736,8 +736,7 @@ function showAppUI() {
     initializeApp();
 
     function showAuthUI() { authContainer.classList.remove('hidden'); appContainer.classList.add('hidden'); }
-  };
-}
+  
 
 // original logic moved here
 function startApp() {
