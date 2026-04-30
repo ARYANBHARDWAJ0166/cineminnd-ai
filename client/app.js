@@ -148,7 +148,7 @@ function handleImageError(img) {
     function initializeMainApp() {
         fetchWatchlist();
         populateStaticMarquee();
-        renderBotResponse(`Salaam ${state.username} bhai! Main hoon Movie-Bhai 🤖🍿. Boliye, aaj kya dekhne ka mood hai? Try: "Avengers jaisi movies" ya "90s thrillers"`);
+        renderBotResponse(`Welcome ${state.username} ! Ask for anytime of movie from around the world by your preference from action,adventure,to romance anything ,just type your intrest or type of movie "`);
     }
 
     
