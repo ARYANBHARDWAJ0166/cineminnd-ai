@@ -148,7 +148,10 @@ function handleImageError(img) {
     function initializeMainApp() {
         fetchWatchlist();
         populateStaticMarquee();
-        renderBotResponse(`Welcome ${state.username} ! Ask for anytime of movie from around the world by your preference from action,adventure,to romance anything ,just type your intrest or type of movie "`);
+        renderBotResponse(`Welcome ${state.username} Ask for any type of movie 
+from around the world by your preference. 
+From Action, Adventure, to Romance — anything! 
+Just type your interest or type of movie."`);
     }
 
     
