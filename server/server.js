@@ -6,11 +6,10 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 
 const app = express();
-app.use(cors({
-  origin: '*',
-  credentials: false
-}));
 
+// ✅ CORS FIX
+app.use(cors());
+app.options('*', cors());
 
 app.use(express.json());
 app.use(passport.initialize());
@@ -30,7 +29,6 @@ app.use("/api/movies", require("./routes/movies"));
 app.use("/api/watchlist", require("./routes/watchlist"));
 app.use("/api/admin", require("./routes/admin"));
 
-// ✅ FIXED - PORT for Render
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => 
   console.log(`Server running on port ${PORT}`)
